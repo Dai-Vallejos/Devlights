@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('principal');
 });
+
+Route::get('IsValid/{S}', 'StringController@IsValid');

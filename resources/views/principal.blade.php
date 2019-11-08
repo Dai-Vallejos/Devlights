@@ -19,7 +19,7 @@
 			<td bgcolor="#FFFFCCC">
 				{!!Form::open(['id'=>'form_string'])!!}
 					<p>Ingrese String a validar:</p>
-					<input type="text" name="stringValid" id="stringValid">
+                    <input type="text" name="stringValid" id="stringValid">
 					<p id="respuesta"></p>
 					<p id="letra"></p>
 					<p id="cantidad"></p>
@@ -40,19 +40,25 @@
 <script>
 
 $(function(){
+
+    jQuery.validator.addMethod("lettersonly", function(value, element) {
+        return this.optional(element) || /^[a-z]+$/i.test(value);
+    }, " - Por favor ingrese solo letras");
+
 	$("#form_string").validate({
         rules: {
           stringValid:{
             required: true,
             maxlength: 100000,
-            minlength: 1
+            minlength: 1,
+            lettersonly: true
           }
         },
         messages: {
           stringValid: {
-            required: "Por favor ingrese un string",
-            maxlength: "Máximo 100000 dígitos",
-            minlength: "Mínimo 1 caracteres"
+            required: " - Por favor ingrese un string",
+            maxlength: " - Máximo 100000 dígitos",
+            minlength: " - Mínimo 1 caracteres"
           }
         },
         submitHandler: function(form) {

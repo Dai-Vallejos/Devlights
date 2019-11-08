@@ -8,8 +8,9 @@ class StringController extends Controller
 {
 	public function IsValid($S)
     {
-	    $array = str_split($S);
-	    $cant = array_values(array_count_values($array));
+	    $array = array_count_values(str_split($S));
+	    $letras = array_keys($array);
+	    $cant = array_values($array);
 		$resp="NO";
 	    
 	    if (count(array_unique($cant)) == 1) {
@@ -29,31 +30,12 @@ class StringController extends Controller
 	    			if (($aux2[0] == 1) && (array_keys($aux1)[0] == 1)) {
 	    					$resp="YES";
 	    				};
-	    		};
-/*
-	    		foreach ($aux2 as $key => $value) {
-	    			if (($value == 1) && (abs(array_keys($aux2)[0]-array_keys($aux2)[1]) == 1) && (array_keys($aux2)[0]>array_keys($aux2)[1])) {
-	    				$resp="YES2";
-	    			};
-	    		};	*/    		
+	    		};    		
 	    	}
 	    	else{
 	    		$resp="NO";
-		    	/*$dif= max($cant)-min($cant);
-		    	if ($dif > 1) {
-		    		$resp="NO";
-		    	}
-		    	else{
-		    		if (count(array_count_values($cant)) == 1) {
-		    			$resp="NO";
-		    		}
-		    		else{
-		    			$resp="YES";
-		    		};
-		    	};*/
 		    };
 	    };
-
-	    return $resp;
+	    return response()->json(['respuesta'=>$resp,'letras'=>$letras,'cantidad'=>$cant]);
 	}
 }

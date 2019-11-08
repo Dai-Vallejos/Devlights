@@ -1,0 +1,39 @@
+table {
+  width: 40%;
+  border: 0;
+}
+
+td {
+  padding: 10px;
+  text-align: center;
+}
+
+b {
+	color: #FFFFFF;
+	font-size: 1.5em;
+}
+
+tr {
+	text-align: center;
+}
+
+p{
+	font-size: 1.1em;
+	font-family: arial, verdana, helvetica;
+}
+	
+.boton_personalizado{
+    text-decoration: none;
+    padding: 5px;
+    font-weight: 600;
+    font-size: 17px;
+    color: #FFFFFF;
+    background-color: #1883BA;
+    border-radius: 6px;
+    border: 2px solid #0016B0;
+}
+
+.boton_personalizado:hover{
+    color: #1883BA;
+    background-color: #FFFFFF;
+}

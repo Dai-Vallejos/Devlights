@@ -7,6 +7,10 @@
     <title>
         Ejercicio Devlights
     </title>
+    {!! Html::style('assets/css/estilo.css')!!}
+    {!! Html::script('assets/js/jquery-1.12.4.js') !!}
+    {!! Html::script('assets/js/jquery_validate.js') !!}
+     
 </head>
 
 <body style="background-color: #E7F7F7">
